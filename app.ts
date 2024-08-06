@@ -21,7 +21,6 @@ const fileStorage = multer.diskStorage({
   },
 });
 
-// Correct the fileFilter function signature
 const imageFilter = (
   request: Request,
   file: any,
