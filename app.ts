@@ -1,14 +1,16 @@
 import path from "path";
+import dotenv from "dotenv";
+dotenv.config();
+
 import express, { Request, Response, NextFunction } from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import multer, { FileFilterCallback } from "multer";
 import { RequestHandler } from "express";
-import dotenv from "dotenv";
 
 import authRoutes from "./routes/auth";
 
-dotenv.config();
+import { CustomError } from "./interfaces/CustomError";
 
 const app = express();
 
@@ -54,13 +56,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 app.use("/auth", authRoutes);
 
 app.use(
-  (
-    error: Error & { statusCode?: number; data?: any },
-    req: Request,
-    res: Response,
-    next: NextFunction
-  ) => {
-    console.log(error);
+  (error: CustomError, req: Request, res: Response, next: NextFunction) => {
     const status = error.statusCode || 500;
     const message = error.message;
     const data = error.data;
@@ -71,9 +67,7 @@ app.use(
 mongoose
   .connect(process.env.MONGODB_URL!)
   .then(() => {
-    app.listen(8080, () => {
-      console.log(`Server is running on port 8080`);
-    });
+    app.listen(8080, () => {});
   })
   .catch((err) => {
     console.log(err);
