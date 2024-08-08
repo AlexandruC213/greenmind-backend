@@ -5,7 +5,6 @@ Welcome to the backend repository of greenmind! This project is built with Node.
 ## Table of Contents
 
 - [Getting Started](#getting-started)
-- [Design](#design)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Running the Project](#running-the-project)
@@ -13,12 +12,6 @@ Welcome to the backend repository of greenmind! This project is built with Node.
 ## Getting Started
 
 Follow these instructions to set up and run the project locally.
-
-### Design
-
-[registration](<https://www.figma.com/design/J7iWCEcvSeOgg3LtucOVJC/Desktop-sign-up-and-login-pages-by-EditorM-(Community)?node-id=0-1&t=bOvy4qz7msrj8JyM-0>)
-
-[app](<https://www.figma.com/design/M0xbzLdMQerdPQ957qhsJW/E-Commerce-Plant-Shop-Website-(Community)?node-id=0-1&t=I1Dg9siVCzeJOIGR-0>)
 
 ### Prerequisites
 
