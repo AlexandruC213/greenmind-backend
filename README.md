@@ -32,6 +32,10 @@ Follow these instructions to set up and run the project locally.
    ```bash
    git clone https://github.com/AlexandruC213/greenmind-backend.git
    cd greenmind-backend
+   ```
+
+2. Install the dependencies:
+   ```bash
    npm install
    ```
 
