@@ -6,9 +6,11 @@ import express, { Request, Response, NextFunction } from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import multer, { FileFilterCallback } from "multer";
+import { v4 as uuidv4 } from "uuid";
 import { RequestHandler } from "express";
 
 import authRoutes from "./routes/auth";
+import productRoutes from "./routes/products";
 
 import { CustomError } from "./interfaces/CustomError";
 
@@ -19,7 +21,7 @@ const fileStorage = multer.diskStorage({
     cb(null, "images");
   },
   filename: (req, file, cb) => {
-    cb(null, new Date().toISOString() + "-" + file.originalname);
+    cb(null, uuidv4() + "-" + file.originalname);
   },
 });
 
@@ -54,6 +56,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 });
 
 app.use("/auth", authRoutes);
+app.use(productRoutes);
 
 app.use(
   (error: CustomError, req: Request, res: Response, next: NextFunction) => {
